@@ -103,7 +103,7 @@ tasks:
 
 
 buildvariants:
- -name: ubuntu-docker
+ - name: ubuntu-docker
    display_name: Docker
    modules: ~
    run_on:
