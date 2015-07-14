@@ -1,4 +1,4 @@
-owner: mpobrien
+owner: tdelac
 repo: sample
 branch: master
 repokind: github
@@ -107,7 +107,7 @@ buildvariants:
    display_name: Docker
    modules: ~
    run_on:
-   - debian71-dockertest
+   - ubuntu1404-builder
    expansions:
      test_flags: "blah blah"
    tasks:
