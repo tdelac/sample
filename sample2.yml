@@ -65,13 +65,14 @@ tasks:
 - name: timeout_test
   depends_on: []
   commands:
+    - func: "fetch source"
     - command: shell.exec
       timeout_secs: 5
       params:
-        working_dir: .
+        working_dir: src
         script: |
             echo "this should not timeout because there is output"
-            ./run.py timeout
+            ./run.py timeout_output
 #- name: compile
 #  depends_on: []
 #  commands:
