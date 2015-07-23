@@ -9,6 +9,7 @@ identifier: sample
 functions:
   "forcetimeout" :
     - command: shell.exec
+      timeout_secs: 5
       params:
         working_dir: .
         script: |
