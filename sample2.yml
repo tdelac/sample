@@ -71,6 +71,7 @@ tasks:
 - name: timeout_test
   depends_on: []
   commands:
+    - func: "fetch source"
     - func: "forcetimeout"
 #- name: compile
 #  depends_on: []
