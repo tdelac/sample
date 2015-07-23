@@ -69,7 +69,7 @@ tasks:
       params:
         working_dir: .
         script: |
-            sleep 10
+            sleep 62
 #- name: compile
 #  depends_on: []
 #  commands:
