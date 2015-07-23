@@ -7,6 +7,12 @@ batchtime: 120
 identifier: sample
 
 functions:
+  "forcetimeout" :
+    - command: shell.exec
+      params:
+        working_dir: src
+        script: |
+            sleep 10
   "fetch source" :
     - command: git.get_project
       params:
@@ -62,46 +68,50 @@ post:
       file_location: src/results.json
 
 tasks:
-- name: compile
+- name: timeout_test
   depends_on: []
   commands:
-    - func: "fetch source"
-    - func: "run a task that passes" 
-    - func: "run a function with an arg"
-      vars:
-        foobar: "TESTING: ONE"
-    - func: "run a function with an arg"
-      vars:
-        foobar: "TESTING: TWO"
-
-- name: passing_test 
-  depends_on: 
-  - name: compile
-  commands:
-    - func: "fetch source"
-    - func: "run a task that passes"
-
-- name: failing_test 
-  depends_on: 
-  - name: compile
-  commands:
-    - func: "fetch source"
-    - func: "run a task that fails"
-
-- name: timeout_test
-  depends_on: 
-  - name: compile
-  commands:
-    - func: "fetch source"
-    - command: shell.exec
-      timeout_secs: 20
-      params:
-        working_dir: src
-        script: |
-           echo "this is going to timeout"
-           ./run.py timeout
-
-
+    - func: "forcetimeout"
+#- name: compile
+#  depends_on: []
+#  commands:
+#    - func: "fetch source"
+#    - func: "run a task that passes" 
+#    - func: "run a function with an arg"
+#      vars:
+#        foobar: "TESTING: ONE"
+#    - func: "run a function with an arg"
+#      vars:
+#        foobar: "TESTING: TWO"
+#
+##- name: passing_test 
+#  depends_on: 
+#  - name: compile
+#  commands:
+#    - func: "fetch source"
+#    - func: "run a task that passes"
+#
+#- name: failing_test 
+#  depends_on: 
+#  - name: compile
+#  commands:
+#    - func: "fetch source"
+#    - func: "run a task that fails"
+#
+#- name: timeout_test
+#  depends_on: 
+#  - name: compile
+#  commands:
+#    - func: "fetch source"
+#    - command: shell.exec
+#      timeout_secs: 20
+#      params:
+#        working_dir: src
+#        script: |
+#           echo "this is going to timeout"
+#           ./run.py timeout
+#
+#
 buildvariants:
  - name: ubuntu-docker
    display_name: Docker
@@ -111,11 +121,12 @@ buildvariants:
    expansions:
      test_flags: "blah blah"
    tasks:
-   - name: compile
-   - name: passing_test
-   - name: failing_test
-   - name: timeout_test 
-#- name: osx-108
+    - name: timeout_test
+#   - name: compile
+#   - name: passing_test
+#   - name: failing_test
+#   - name: timeout_test 
+##- name: osx-108
 #  display_name: OSX
 #  modules: ~
 #  run_on:
