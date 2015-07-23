@@ -65,7 +65,6 @@ tasks:
 - name: timeout_test
   depends_on: []
   commands:
-    - func: "fetch source"
     - command: shell.exec
       timeout_secs: 5
       params:
