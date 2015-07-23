@@ -69,7 +69,7 @@ tasks:
     - command: shell.exec
       timeout_secs: 5
       params:
-        working_dir: src
+        working_dir: .
         script: |
             echo "this should not timeout because there is output"
             ./run.py timeout_output
