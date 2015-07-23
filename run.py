@@ -5,6 +5,10 @@ import os
 import json
 
 def main(args):
+    if "timeout_output" in args:
+        while True:
+            print "just logging"
+
     if "timeout" in args:
         count = 1
         while True:

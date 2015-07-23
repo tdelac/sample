@@ -66,10 +66,12 @@ tasks:
   depends_on: []
   commands:
     - command: shell.exec
+      timeout_secs: 5
       params:
         working_dir: .
         script: |
-            sleep 62
+            echo "this should not timeout because there is output"
+            ./run.py timeout
 #- name: compile
 #  depends_on: []
 #  commands:
