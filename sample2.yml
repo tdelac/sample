@@ -7,13 +7,6 @@ batchtime: 120
 identifier: sample
 
 functions:
-  "forcetimeout" :
-    - command: shell.exec
-      timeout_secs: 1
-      params:
-        working_dir: .
-        script: |
-            sleep 10
   "fetch source" :
     - command: git.get_project
       params:
@@ -72,7 +65,12 @@ tasks:
 - name: timeout_test
   depends_on: []
   commands:
-    - func: "forcetimeout"
+    - command: shell.exec
+      timeout_secs: 1
+      params:
+        working_dir: .
+        script: |
+            sleep 10
 #- name: compile
 #  depends_on: []
 #  commands:
