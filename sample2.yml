@@ -70,8 +70,7 @@ tasks:
       params:
         working_dir: .
         script: |
-            echo "this should not timeout because there is output"
-            ./run.py timeout_output
+            sleep 20
 #- name: compile
 #  depends_on: []
 #  commands:
