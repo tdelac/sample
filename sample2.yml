@@ -64,7 +64,7 @@ post:
 tasks:
 - name: timeout_test
   depends_on: []
-  master_timeout: 10
+  exec_timeout: 10
   commands:
     - command: shell.exec
       params:
