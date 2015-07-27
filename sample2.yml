@@ -70,7 +70,7 @@ tasks:
       params:
         working_dir: .
         script: |
-            sleep 20
+          ./run.py timeout_output
 #- name: compile
 #  depends_on: []
 #  commands:
