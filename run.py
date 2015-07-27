@@ -7,6 +7,7 @@ import json
 def main(args):
     if "timeout_output" in args:
         while True:
+            time.sleep(1)
             print "just logging"
 
     if "timeout" in args:
