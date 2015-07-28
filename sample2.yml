@@ -64,13 +64,13 @@ post:
 tasks:
 - name: timeout_test
   depends_on: []
-  exec_timeout: 10
+  exec_timeout: 3
   commands:
     - command: shell.exec
       params:
         working_dir: .
         script: |
-            for i in 1 2 3 4 5 
+            for i in {1..10000} 
             do 
                 sleep 1 
                 echo $i 
