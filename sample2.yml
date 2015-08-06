@@ -120,7 +120,7 @@ buildvariants:
    display_name: Docker
    modules: ~
    run_on:
-   - ubuntu1404-builder
+   - production-test
    expansions:
      test_flags: "blah blah"
    tasks:
